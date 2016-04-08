@@ -1,0 +1,264 @@
+jQuery Mobile1.4.2 DEMOSSearch
+Table Reflow: Custom styles
+
+Custom styles for the reflow table at stacked widths.
+
+Top Movies
+
+RANK	MOVIE TITLE	YEAR	RATING	REVIEWS	DIRECTOR
+1	Citizen Kane	1941	100%	74	Orson Welles
+2	Casablanca	1942	97%	64	Michael Curtiz
+3	The Godfather	1972	97%	87	Francis Ford Coppola
+4	Gone with the Wind	1939	96%	87	Victor Fleming
+5	Lawrence of Arabia	1962	94%	87	Sir David Lean
+6	Dr. Strangelove Or How I Learned to Stop Worrying and Love the Bomb	1964	92%	74	Stanley Kubrick
+7	The Graduate	1967	91%	122	Mike Nichols
+8	The Wizard of Oz	1939	90%	72	Victor Fleming
+9	Singin' in the Rain	1952	89%	85	Stanley Donen, Gene Kelly
+10	Inception	2010	84%	78	Christopher Nolan
+View Source
+Home
+Introduction
+Buttons
+Button widget
+Checkboxradio widget click to expand contents
+Collapsible (set) widget click to expand contents
+Controlgroup widget click to expand contents
+Datepicker
+Events click to expand contents
+Filterable widget
+Flipswitch widget
+Forms click to expand contents
+Grids click to expand contents
+Grouping and dividing content
+Icons click to expand contents
+Listview widget click to expand contents
+Loader widget
+Navbar widget
+Navigation click to expand contents
+Pages click to expand contents
+Panel widget click to expand contents
+Popup widget click to expand contents
+Rangeslider widget
+Responsive Web Design
+Selectmenu widget click to expand contents
+Slider widget click to expand contents
+Table widget click to expand contents
+Tabs widget
+Textinput widget
+Theming click to expand contents
+Toolbar widget click to expand contents
+Transitions
+3rd party API demos click to expand contents
+jQuery Mobile Demos version 1.4.2Copyright 2014 The jQuery Foundation
+HTML click to expand contents
+CSS click to collapse contents
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+/* These apply across all breakpoints because they are outside of a media query */
+/* Make the labels light gray all caps across the board */
+.movie-list thead th,
+.movie-list tbody th .ui-table-cell-label,
+.movie-list tbody td .ui-table-cell-label {
+    text-transform: uppercase;
+    font-size: .7em;
+    color: rgba(0,0,0,0.5);
+    font-weight: normal;
+}
+/* White bg, large blue text for rank and title */
+.movie-list tbody th {
+    font-size: 1.2em;
+    background-color: #fff;
+    color: #77bbff;
+    text-align: center;
+}
+/*  Add a bit of extra left padding for the title */
+.movie-list tbody td.title {
+    padding-left: .8em;
+}
+/* Add strokes */
+.movie-list thead th {
+    border-bottom: 1px solid #d6d6d6; /* non-RGBA fallback */
+    border-bottom: 1px solid rgba(0,0,0,.1);
+}
+.movie-list tbody th,
+.movie-list tbody td {
+    border-bottom: 1px solid #e6e6e6; /* non-RGBA fallback  */
+    border-bottom: 1px solid rgba(0,0,0,.05);
+}
+/*  Custom stacked styles for mobile sizes */
+/*  Use a max-width media query so we don't have to undo these styles */
+@media (max-width: 40em) {
+    /*  Negate the margin between sections */
+    .movie-list tbody th {
+        margin-top: 0;
+        text-align: left;
+    }
+    /*  White bg, large blue text for rank and title */
+    .movie-list tbody th,
+    .movie-list tbody td.title {
+        display: block;
+        font-size: 1.2em;
+        line-height: 110%;
+        padding: .5em .5em;
+        background-color: #fff;
+        color: #77bbff;
+        -moz-box-shadow: 0 1px 6px rgba(0,0,0,.1);
+        -webkit-box-shadow: 0 1px 6px rgba(0,0,0,.1);
+        box-shadow: 0 1px 6px rgba(0,0,0,.1);
+    }
+    /*  Hide labels for rank and title */
+    .movie-list tbody th .ui-table-cell-label,
+    .movie-list tbody td.title .ui-table-cell-label {
+        display: none;
+    }
+    /*  Position the title next to the rank, pad to the left */
+    .movie-list tbody td.title {
+        padding-left: 2.2em;
+        border-bottom: 1px solid rgba(0,0,0,.15);
+    }
+    /*  Make the data bold */
+    .movie-list th,
+    .movie-list td {
+        font-weight: bold;
+    }
+    /* Make the label elements a percentage width */
+    .movie-list td .ui-table-cell-label,
+    .movie-list th .ui-table-cell-label {
+        min-width: 20%;
+    }
+}
+/* Media query to show as a standard table at wider widths */
+@media ( min-width: 40em ) {
+    /* Show the table header rows */
+    .movie-list td,
+    .movie-list th,
+    .movie-list tbody th,
+    .movie-list tbody td,
+    .movie-list thead td,
+    .movie-list thead th {
+        display: table-cell;
+        margin: 0;
+    }
+    /* Hide the labels in each cell */
+    .movie-list td .ui-table-cell-label,
+    .movie-list th .ui-table-cell-label {
+        display: none;
+    }
+}
+/* Hack to make IE9 and WP7.5 treat cells like block level elements */
+/* Applied in a max-width media query up to the table layout breakpoint so we don't need to negate this */
+@media ( max-width: 40em ) {
+    .movie-list td,
+    .movie-list th {
+        width: 100%;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        float: left;
+        clear: left;
+    }
+}

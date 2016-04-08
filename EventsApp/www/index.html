@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2014 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <title>Hello World</title>
+
+
+</head>
+
+<body>
+    <div data-role="page" id="pageone">
+        <div data-role="header">
+            <h1>Exercise 2</h1>
+        </div>
+        <div data-role="content">
+            <form action="process.cfm" method="post" name="eventform">
+                <fieldset data-role='fieldcontain'>
+                    <label for="name event">Name events:</label>
+                    <input type="text" name="name" id="names" placeholder="Input event  name " class="validate[required] text-input" />
+                </fieldset>
+
+                <fieldset data-role="fieldcontain">
+                    <label for="location">Favorite Color:</label>
+                    <select id="location" name="location">
+                        <option>Choose location</option>
+                        <option>New York, USA</option>
+                        <option>London, UK</option>
+                        <option>Ho Chi Minh, VietNam</option>
+                        <option>HongKong, China</option>
+                    </select>
+                </fieldset>
+
+                <fieldset data-role='fieldcontain'>
+                    <label for="date event">Date of the event :</label>
+                    <input type="date" name="date" id="date" />
+                </fieldset>
+                <fieldset data-role='fieldcontain'>
+                    <label for="time event">Time of events:</label>
+                    <input type="time" name="time" id="time" />
+
+                </fieldset>
+
+
+                <fieldset data-role='fieldcontain'>
+                    <label for="name organize">Names of event organize:</label>
+                    <input type="text" name="organize" id="organize" placeholder="Input name of event organize" />
+                </fieldset>
+
+                <input id="login" value="Submit" type="button" onclick="validationcheck();">
+
+            </form>
+        </div>
+
+        <div data-role="footer">
+            <h1></h1>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        function validationcheck() {
+            if (document.eventform.name.value == "") {
+
+                alert("Name of events not invalid.");
+
+                document.eventform.name.focus();
+
+
+            } else if (document.eventform.location.value == "Choose location") {
+
+                alert("Location not invalid.");
+
+                document.eventform.location.focus();
+
+            } else if (document.eventform.date.value == "") {
+
+                alert("Date of Events not invalid.");
+
+                document.eventform.date.focus();
+
+            } else if (document.eventform.time.value == "") {
+
+                alert(" Time of Events not invalid.");
+
+                document.eventform.time.focus();
+
+            } else if (document.eventform.organize.value == "") {
+
+                alert(" Event of Organize not invalid.");
+
+                document.eventform.organize.focus();
+
+            } else {
+                var nof = document.getElementById('names').value;
+                var locate = document.getElementById('location').value;
+                var dof = document.getElementById('date').value;
+                var timeof = document.getElementById('time').value;
+                var org = document.getElementById('organize').value;
+                alert('Name of events:' + nof + '\nLocation:' + locate + '\nDate of events:' + dof + '\nTime of event:' + timeof + '\nEvents organize:' + org);
+                //alert(document.getElementById('names').value +'\n'+ document.getElementById('location').value);
+                // alert("Success");
+            }
+        }
+
+    </script>
+
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+</body>
+
+</html>
